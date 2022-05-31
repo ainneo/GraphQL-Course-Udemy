@@ -1,11 +1,14 @@
 const { gql } = require("apollo-server");
 
+//Scalar Types, Int, Float, Boolean...
+
 exports.typeDefs = gql`
   type Query {
     #hello, products, product, categories, category are all feilds we can query...
     #hello retubs a string
-    hello: String
+    hello: String  #Scalar Type
     # query by ProductFilterInput from the list of Products
+    # we can filter through any list of input items in the array of products
     products(filter: ProductsFilterInput): [Product!]!
     # query by id in Product
     product(id: ID!): Product
@@ -36,6 +39,7 @@ exports.typeDefs = gql`
     updateReview(id: ID!, input: UpdateReviewInput!): Review
   }
 
+# TYPES: object properties and values
   type Product {
     id: ID!
     name: String!
@@ -62,6 +66,7 @@ exports.typeDefs = gql`
     rating: Int!
   }
 
+# INPUTS:
   input ProductsFilterInput {
     onSale: Boolean
     avgRating: Int
@@ -111,3 +116,17 @@ exports.typeDefs = gql`
     productId: ID!
   }
 `;
+
+//we can QUERY  different fields in QUERY type
+//each field has a object type with properties and values
+//so basically we can... 
+//***query the product field via the Product object properties***
+
+//we can query a field by filtering, by ids, list etc...
+// examples:
+//  products(filter: ProductsFilterInput): [Product!]!
+//  categories: [Category!]!
+//  query by id in Category
+//  category(id: ID!): Category
+
+//Mutations allow us to do CRUD actions

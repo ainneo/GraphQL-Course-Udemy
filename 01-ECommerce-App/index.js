@@ -22,3 +22,7 @@ const server = new ApolloServer({
 server.listen().then(({ url }) => {
   console.log("Server is up at " + url);
 });
+
+//29:12
+//to run project: node index
+//https://www.youtube.com/watch?v=qux4-yWeZvo

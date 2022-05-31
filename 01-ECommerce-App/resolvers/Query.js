@@ -1,3 +1,7 @@
+//A resolver can optionally accept four positional arguments: (parent, args, context, info)
+//The args argument is an object that contains all GraphQL arguments that were provided for the field by the GraphQL operation.
+//see: https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-arguments
+//Return Values: https://www.apollographql.com/docs/apollo-server/data/resolvers/#return-values
 exports.Query = {
   hello: (parent, args, context) => "World",
   products: (parent, { filter }, { db }) => {
